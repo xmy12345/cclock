@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!--
+		SqlMapConfig.xml中配置的内容和顺序如下：
+		
+		properties（属性）***
+		settings（全局配置参数）
+		typeAliases（类型别名）***
+		typeHandlers（类型处理器）
+		objectFactory（对象工厂）
+		plugins（插件）
+		environments（环境集合属性对象）
+			environment（环境子属性对象）
+				transactionManager（事务管理）
+				dataSource（数据源）
+		mappers（映射器）
+	-->
+	<plugins>
+        <plugin interceptor="com.github.pagehelper.PageInterceptor">
+            <!-- 设置数据库类型 Oracle,Mysql,MariaDB,SQLite,Hsqldb,PostgreSQL六种数据库-->        
+        </plugin>
+    </plugins>
+	
+	<mappers>
+		<!--一对一配置：resource属性是从classpath下开始查找，即src-->
+		<!-- <mapper resource="edu/tinzel/mybatis/mapper/StusMapper.xml"/> -->
+		
+		<!--批量扫描包：要求接口命名为XxxMapper.java，要求XxxMapper.xml放在同一个包下 -->
+		<mapper resource="edu/tinzel/ssm/mapper/StusMapper.xml"/>
+	</mappers>
+	
+</configuration>
